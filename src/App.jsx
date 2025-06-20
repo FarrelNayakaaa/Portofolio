@@ -8,8 +8,11 @@ import ColorInterpolation from './ColorInterpolation';
 import ScrollLinked from './ScrollLinked';
 import AboutBox from './AboutBox';
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <>
       <ColorInterpolation />
@@ -22,6 +25,9 @@ function App() {
         <div className="nav-center">
           <p className="nav-title">MY PORTFOLIO</p>
         </div>
+
+        <button className="hamburger" onClick={() => setMenuOpen(true)}>☰</button>
+
         <div className="nav-right">
           <a href="#home">Home</a>
           <a href="#project">Project</a>
@@ -29,21 +35,29 @@ function App() {
         </div>
       </div>
 
+      {/* Mobile Menu Popup */}
+      {menuOpen && (
+        <div className="overlay-menu">
+          <button className="close-btn" onClick={() => setMenuOpen(false)}>×</button>
+          <a href="#home" onClick={() => setMenuOpen(false)}>Home</a>
+          <a href="#project" onClick={() => setMenuOpen(false)}>Project</a>
+          <a href="#about" onClick={() => setMenuOpen(false)}>About Me</a>
+        </div>
+      )}
+
       {/* Hero Section */}
       <motion.div
         className="container"
         id="home"
         initial={{ opacity: 0, x: -100 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
       >
         <motion.div
           className="content"
           initial={{ opacity: 0, x: 100 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
         >
           <div className="left">
             <img src={bulbasaur} alt="bulbasaur" className="bulbasaur" />
@@ -106,34 +120,32 @@ function App() {
       >
         <h2 className="section-title">About Me</h2>
 
-        <AboutBox>
           <ul className="about-list">
             <li>
               <strong>Passionate Backend Engineer</strong><br />
-              Experienced in building and maintaining efficient, scalable backend systems. Skilled in RESTful APIs, database management, and server-side architecture.
+              Experienced in building and maintaining efficient, scalable backend systems.
             </li>
             <li>
               <strong>Artificial Intelligence Enthusiast</strong><br />
-              Actively exploring topics in AI, including machine learning, deep learning, and natural language processing, mainly using Python and Java.
+              Exploring machine learning, deep learning, and NLP using Python and Java.
             </li>
             <li>
               <strong>UI Design Interest with Figma</strong><br />
-              Enjoy designing user-friendly interfaces and creating prototypes using Figma, combining functionality with clean aesthetics.
+              Enjoy designing user interfaces with aesthetic and usability balance.
             </li>
             <li>
               <strong>Currently Exploring AI Engineering</strong><br />
-              Focused on developing intelligent systems by integrating backend logic with AI algorithms. Building independent projects to apply theoretical concepts.
+              Building intelligent systems through backend and AI integration.
             </li>
             <li>
               <strong>Lifelong Learner & Side Project Builder</strong><br />
-              Constantly learning through online courses, documentation, and forums. Passionate about building side projects as a way to practice and experiment with new technologies.
+              Passionate about building side projects to experiment with tech.
             </li>
             <li>
               <strong>Open to Collaboration and Opportunities</strong><br />
-              Always open to meaningful collaboration, project ideas, and innovative tech initiatives.
+              Open for meaningful tech initiatives and teamwork.
             </li>
           </ul>
-        </AboutBox>
 
         <p className="skills-title">Get to know me</p>
 

@@ -10,11 +10,10 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, button {
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: linear-gradient(45deg, #03193d,#00977e );
+  background: linear-gradient(45deg, #03193d, #00977e);
   overflow-x: hidden;
-
+  overflow-y: auto;
 }
-
 
 /* NAVBAR */
 .navbar {
@@ -48,7 +47,7 @@ body {
   flex: 1;
   display: flex;
   justify-content: flex-end;
-  gap: 40px; /* Diperlebar jaraknya */
+  gap: 40px;
 }
 
 .nav-logo {
@@ -77,35 +76,56 @@ body {
   text-shadow: 0 0 4px #00ffd5;
 }
 
-/* MAIN CONTENT 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Hamburger (mobile only) */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Overlay full-screen mobile menu */
+.overlay-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  padding-top: 60px;
-  box-sizing: border-box;
-}
-
-.hero-container {
-  width: 100%;
-  padding: 120px 20px 80px;
-  box-sizing: border-box;
+  background: rgba(3, 25, 61, 0.95);
+  z-index: 1000;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  margin-top: 100px;
 }
 
-.section {
-  width: 100%;
-  padding: 120px 20px 80px;
-  box-sizing: border-box;
-  text-align: center;
-}*/
+.overlay-menu a {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px 0;
+  text-decoration: none;
+}
 
+.overlay-menu a:hover {
+  color: #00ffd5;
+  text-shadow: 0 0 5px #00ffd5;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 36px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* MAIN CONTENT */
 .container {
   width: 100%;
   padding: 120px 20px 80px;
@@ -218,11 +238,12 @@ body {
   color: #00d6b4;
   cursor: pointer;
 }
+
 .socials.large-icons {
   display: flex;
   gap: 24px;
   font-size: 20px;
-  margin-top: 12px; /* dari 40px → jadi lebih dekat */
+  margin-top: 12px;
   justify-content: center;
 }
 
@@ -237,14 +258,13 @@ body {
 
 .skills-title {
   font-weight: bold;
-  font-size: 28px; /* dari 16px → diperbesar */
+  font-size: 28px;
   margin-bottom: 12px;
   color: white;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
-  margin-top: 40px; /* tambahkan jika perlu memisah dari atas */
+  margin-top: 40px;
   text-align: center;
 }
-
 
 /* Animating Background */
 .background-animate {
@@ -260,25 +280,6 @@ body {
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
-}
-
-/* Button */
-.btn {
-  padding: 12px 24px;
-  background-color: transparent; /* tanpa background */
-  color: white;
-  border: 2px solid white;       /* garis pinggir berwarna putih */
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  cursor: pointer;
-  display: inline-block;
-  transition: all 0.3s ease;
-}
-
-.btn:hover {
-  background-color: white;
-  color: #333; /* teks jadi gelap saat hover */
 }
 
 /* About */
@@ -303,41 +304,49 @@ body {
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
 }
 
+/* ABOUT LIST ITEM AS BOXES */
 .about-list {
-  list-style-type: disc;
-  padding-left: 24px;
-  color: white;
-  font-size: 16px;
-  line-height: 1.8;
-  text-align: left;
-  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   margin: 0 auto;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  padding: 0;
+  max-width: 900px;
+  width: 100%;
 }
 
 .about-list li {
-  margin-bottom: 20px;
+  list-style: none;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  line-height: 1.6;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  transition: border 0.3s;
+}
+
+.about-list li:hover {
+  border-color: #00ffd5;
 }
 
 .about-list strong {
   color: #00ffd5;
   font-size: 17px;
-  display: inline-block;
-  margin-bottom: 4px;
+  display: block;
+  margin-bottom: 6px;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 
+/* REMOVE OLD WRAPPER STYLE */
 .animated-about-box {
-  padding: 40px;
-  border-radius: 16px;
-  color: white;
-  width: 100%;
-  max-width: 900px;
-  margin: 40px auto;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  transition: background 1s ease-in-out;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
 }
 
 
@@ -345,14 +354,6 @@ body {
 .skills-section {
   text-align: center;
   margin-top: 40px;
-}
-
-.skills-title {
-  font-weight: bold;
-  font-size: 16px;
-  margin-bottom: 12px;
-  color: white;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 .skill-icons {
@@ -370,4 +371,123 @@ body {
 
 .skill-icons img:hover {
   transform: scale(1.1);
+}
+
+/* Responsive only for navbar */
+@media (max-width: 768px) {
+  /* Navbar adjustments */
+  .nav-left {
+    flex: 0;
+  }
+
+  .nav-center {
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+  }
+
+  .nav-title {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 16px;
+  }
+
+  .nav-right {
+    display: none;
+  }
+
+  /* Section adjustments */
+  .container {
+    padding: 100px 16px 60px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .content {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .description {
+    font-size: 14px;
+    max-width: 90%;
+    margin: 0 auto 20px;
+  }
+
+  .bulbasaur {
+    width: 180px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .evolutions p {
+    font-size: 14px;
+  }
+
+  .evo-images img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .socials {
+    gap: 16px;
+    font-size: 18px;
+  }
+
+  .socials.large-icons i {
+    font-size: 28px;
+  }
+
+  .skills-title {
+    font-size: 20px;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .about-list {
+    font-size: 14px;
+    padding-left: 16px;
+  }
+
+  .about-list strong {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-list li {
+    padding: 16px;
+    font-size: 14px;
+  }
+
+  .about-list strong {
+    font-size: 15px;
+  }
 }
