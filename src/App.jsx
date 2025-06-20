@@ -12,22 +12,6 @@ import { useState, useEffect } from "react";
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Fix mobile responsive issues when switching tabs or opening on mobile
-  useEffect(() => {
-    const refreshOnResize = () => {
-      document.body.style.display = 'none';
-      document.body.offsetHeight;
-      document.body.style.display = '';
-    };
-
-    window.addEventListener("resize", refreshOnResize);
-    window.addEventListener("orientationchange", refreshOnResize);
-    return () => {
-      window.removeEventListener("resize", refreshOnResize);
-      window.removeEventListener("orientationchange", refreshOnResize);
-    };
-  }, []);
-
   return (
     <>
       <ColorInterpolation />
