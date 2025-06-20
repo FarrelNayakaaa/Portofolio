@@ -72,7 +72,7 @@ function App() {
             <a href="/CV–Muhammad Farrel Nayaka.pdf" className="btn" download>RESUME</a>
 
             <div className="evolutions">
-              <p>EVOLUTIONS:</p>
+              <p>My Skills:</p>
               <div className="evo-images">
                 <img src={evo1} alt="evo1" />
                 <img src={evo2} alt="evo2" />
