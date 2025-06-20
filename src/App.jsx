@@ -6,12 +6,27 @@ import evo3 from './assets/evo3.png';
 import logo from './assets/pokemon_logo.png';
 import ColorInterpolation from './ColorInterpolation';
 import ScrollLinked from './ScrollLinked';
-import AboutBox from './AboutBox';
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // Fix mobile responsive issues when switching tabs or opening on mobile
+  useEffect(() => {
+    const refreshOnResize = () => {
+      document.body.style.display = 'none';
+      document.body.offsetHeight;
+      document.body.style.display = '';
+    };
+
+    window.addEventListener("resize", refreshOnResize);
+    window.addEventListener("orientationchange", refreshOnResize);
+    return () => {
+      window.removeEventListener("resize", refreshOnResize);
+      window.removeEventListener("orientationchange", refreshOnResize);
+    };
+  }, []);
 
   return (
     <>
@@ -120,32 +135,32 @@ function App() {
       >
         <h2 className="section-title">About Me</h2>
 
-          <ul className="about-list">
-            <li>
-              <strong>Passionate Backend Engineer</strong><br />
-              Experienced in building and maintaining efficient, scalable backend systems.
-            </li>
-            <li>
-              <strong>Artificial Intelligence Enthusiast</strong><br />
-              Exploring machine learning, deep learning, and NLP using Python and Java.
-            </li>
-            <li>
-              <strong>UI Design Interest with Figma</strong><br />
-              Enjoy designing user interfaces with aesthetic and usability balance.
-            </li>
-            <li>
-              <strong>Currently Exploring AI Engineering</strong><br />
-              Building intelligent systems through backend and AI integration.
-            </li>
-            <li>
-              <strong>Lifelong Learner & Side Project Builder</strong><br />
-              Passionate about building side projects to experiment with tech.
-            </li>
-            <li>
-              <strong>Open to Collaboration and Opportunities</strong><br />
-              Open for meaningful tech initiatives and teamwork.
-            </li>
-          </ul>
+        <ul className="about-list">
+          <li>
+            <strong>Passionate Backend Engineer</strong><br />
+            Experienced in building and maintaining efficient, scalable backend systems.
+          </li>
+          <li>
+            <strong>Artificial Intelligence Enthusiast</strong><br />
+            Exploring machine learning, deep learning, and NLP using Python and Java.
+          </li>
+          <li>
+            <strong>UI Design Interest with Figma</strong><br />
+            Enjoy designing user interfaces with aesthetic and usability balance.
+          </li>
+          <li>
+            <strong>Currently Exploring AI Engineering</strong><br />
+            Building intelligent systems through backend and AI integration.
+          </li>
+          <li>
+            <strong>Lifelong Learner & Side Project Builder</strong><br />
+            Passionate about building side projects to experiment with tech.
+          </li>
+          <li>
+            <strong>Open to Collaboration and Opportunities</strong><br />
+            Open for meaningful tech initiatives and teamwork.
+          </li>
+        </ul>
 
         <p className="skills-title">Get to know me</p>
 
