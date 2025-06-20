@@ -473,7 +473,7 @@ body {
 
   .about-list {
     font-size: 14px;
-    padding-left: 16px;
+    padding-left: 5px;
   }
 
   .about-list strong {
@@ -483,7 +483,7 @@ body {
 
 @media (max-width: 768px) {
   .about-list li {
-    padding: 16px;
+    padding: 12px;
     font-size: 14px;
   }
 
