@@ -269,8 +269,21 @@ body {
 /* Animating Background */
 .background-animate {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw; /* fix */
+  height: 100vh; /* fix */
+  background: linear-gradient(-45deg, #03193d, #00977e, #03a688, #014f86);
+  background-size: 400% 400%;
   z-index: -1;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* Optional animasi background */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Project section */
