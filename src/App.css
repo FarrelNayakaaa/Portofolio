@@ -9,11 +9,23 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, button {
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(45deg, #03193d, #00977e);
+  background: none;
   overflow-x: hidden;
   overflow-y: auto;
   box-sizing: border-box;
 }
+
+.background-animate {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  /*background-color: #00d6b4;  nilai awal, bisa cocok dengan animasi  
+  linear-gradient(45deg, #03193d, #00977e */
+}
+
 
 /* Navbar */
 .navbar {
@@ -195,7 +207,7 @@ body {
 .btn {
   background-color: transparent;
   color: white;
-  border: 3px solid #00d6b4;
+  border: 2px solid #5b4cf2;
   padding: 14px 28px;
   border-radius: 8px;
   font-weight: bold;
@@ -207,7 +219,8 @@ body {
 }
 
 .btn:hover {
-  background-color: #00d6b4;
+  background-color: #00ffd5;
+  border: 3px solid #00ffd5;
   color: white;
 }
 
@@ -314,7 +327,7 @@ body {
 .about-list li {
   list-style: none;
   padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 12px;
   background: transparent;
   color: white;

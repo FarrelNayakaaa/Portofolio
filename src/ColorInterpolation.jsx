@@ -8,7 +8,7 @@ export default function ColorInterpolation() {
     const animation = animate(
       scope.current,
       {
-        backgroundColor: ['#00d6b4', '#00977e'],
+        backgroundColor: ['#03193d', '#00977e'],
       },
       {
         duration: 5,
