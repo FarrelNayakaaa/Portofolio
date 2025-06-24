@@ -22,7 +22,7 @@ function App() {
           <img src={logo} alt="Pokemon Logo" className="nav-logo" />
         </div>
         <div className="nav-center">
-          <p className="nav-title">MY PORTFOLIO</p>
+          <p className="nav-title">Farrel Nayaka</p>
         </div>
 
         <button className="hamburger" onClick={() => setMenuOpen(true)}>☰</button>
