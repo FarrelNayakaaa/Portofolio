@@ -193,9 +193,9 @@ body {
 }
 
 .btn {
-  background-color: #006aff;
+  background-color: transparent;
   color: white;
-  border: none;
+  border: 3px solid #00d6b4;
   padding: 14px 28px;
   border-radius: 8px;
   font-weight: bold;
@@ -207,7 +207,8 @@ body {
 }
 
 .btn:hover {
-  background-color: #0055cc;
+  background-color: #00d6b4;
+  color: white;
 }
 
 .evolutions p {
